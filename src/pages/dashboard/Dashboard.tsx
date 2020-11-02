@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { Row, Col, Card, Typography, Button, Form, Input, Select } from "antd"
 
 import classes from "./Dashboard.module.css"
@@ -7,21 +7,29 @@ import { analytics } from "constants/dashboard"
 
 const Dashboard: FC = () => {
   const [form] = Form.useForm()
+
   return (
     <>
       {/* Analytic section */}
       <section className="app-section">
         <Row gutter={[32, 32]} justify="center">
           {analytics.map((analytic) => (
-            <Col key={analytic.name} xl={4} lg={6} md={8} xs={12}>
+            <Col 
+              key={analytic.name} 
+              xl={4} lg={6} md={8} xs={12}>
+              
               <p className="typo-grey">{analytic.name}</p>
-              <Card className={classes["card-analytic"]}>
-                <Row justify="center" align="middle">
+              
+              <Card 
+                className={classes["card-analytic"]}
+                size="default">
+                <Row justify="center" align="stretch">
                   <Typography.Title level={1} style={{ margin: 0 }}>
                     {analytic.value}
                   </Typography.Title>
                 </Row>
               </Card>
+            
             </Col>
           ))}
         </Row>
@@ -49,8 +57,14 @@ const Dashboard: FC = () => {
             <span>Get instant quotes</span>
           </Col>
           <Col xl={16} lg={24} md={24} xs={24}>
-            <Card className={classes["card-analytic"]}>
-              <Form form={form} layout="vertical">
+            <Card 
+              className={classes["card-analytic"]}
+              >
+              <Form 
+                form={form} 
+                layout="vertical"
+                size="large">
+                
                 <Form.Item
                   label="From"
                   required
@@ -67,7 +81,7 @@ const Dashboard: FC = () => {
                     >
                       <Select
                         showSearch
-                        style={{ width: "100%" }}
+                        style={{ width: "95%" }}
                         placeholder="Select country"
                         optionFilterProp="children"
                       >
@@ -108,7 +122,7 @@ const Dashboard: FC = () => {
                     >
                       <Select
                         showSearch
-                        style={{ width: "100%" }}
+                        style={{ width: "95%" }}
                         placeholder="Select country"
                         optionFilterProp="children"
                       >
@@ -143,8 +157,8 @@ const Dashboard: FC = () => {
                 </Form.Item>
 
                 <Row justify="center" align="middle">
-                  <Form.Item style={{ marginBottom: 10 }}>
-                    <Button type="primary">Get quotes</Button>
+                  <Form.Item>
+                    <Button type="primary" size="large">Get quotes</Button>
                   </Form.Item>
                 </Row>
               </Form>

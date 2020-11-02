@@ -1,7 +1,7 @@
-import React, { FC, useState } from "react"
-import { Row, Col, Table, Button } from "antd"
+import React, { FC, useState } from 'react'
+import { Row, Col, Table, Button } from 'antd'
 
-import { columns, data } from "constants/table.pendingCheckout"
+import { columns, data } from 'constants/table.pendingCheckout'
 
 declare type selectType = 'checkbox' | 'radio'
 
