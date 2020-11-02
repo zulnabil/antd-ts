@@ -7,6 +7,8 @@ import {
   ProfileOutlined,
   DollarOutlined,
   InteractionOutlined,
+  UserOutlined,
+  ImportOutlined,
 } from "@ant-design/icons"
 
 export const menus = [
@@ -40,4 +42,14 @@ export const menus = [
     path: "/transactions",
     icon: <InteractionOutlined />,
   },
+  {
+    name: "Account",
+    path: "/Account",
+    icon: <UserOutlined />
+  },
+  {
+    name: "Logout",
+    path: "/Logout",
+    icon: <ImportOutlined />
+  }
 ]

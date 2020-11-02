@@ -6,6 +6,7 @@ const PendingCheckout = lazy(() => import("pages/PendingCheckout"))
 const Shipments = lazy(() => import("pages/Shipments"))
 const Topup = lazy(() => import("pages/Topup"))
 const Transactions = lazy(() => import("pages/Transactions"))
+const Account = lazy(() => import("pages/Account"))
 
 export const router = [
   {
@@ -38,5 +39,10 @@ export const router = [
     path: "/transactions",
     name: "Transactions",
     component: <Transactions />,
+  },
+  {
+    path: "/account",
+    name: "Account",
+    component: <Account />,
   },
 ]
