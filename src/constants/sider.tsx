@@ -44,12 +44,12 @@ export const menus = [
   },
   {
     name: "Account",
-    path: "/Account",
+    path: "/account",
     icon: <UserOutlined />
   },
   {
     name: "Logout",
-    path: "/Logout",
+    path: "/logout",
     icon: <ImportOutlined />
   }
 ]

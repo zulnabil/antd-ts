@@ -25,36 +25,44 @@ const AppLayout: FC<Props> = ({ children }) => {
     return currentMenu && currentMenu.name
   }
 
+  const isAuthPage = () => {
+    return location.pathname === '/login' || location.pathname === '/register'
+  }
+
   return (
     <Layout>
-      <Sider
-        className={classes.sider}
-        theme="light"
-        trigger={null}
-        collapsible
-        collapsed={collapsed}
-      >
-        <div className={classes.logo} />
-        <Menu mode="inline" defaultSelectedKeys={[location.pathname]}>
-          {menus.map((menu, index) => (
-            <Menu.Item key={menu.path} icon={menu.icon}>
-              <Link id={`link-${index}`} to={menu.path}>
-                {menu.name}
-              </Link>
-            </Menu.Item>
-          ))}
-        </Menu>
-      </Sider>
-      <Layout className={classes["site-layout"]}>
-        <Header
-          className="content-blue"
-          style={{ padding: 0 }}
+      {!isAuthPage() && (
+        <Sider
+          className={classes.sider}
+          theme="light"
+          trigger={null}
+          collapsible
+          collapsed={collapsed}
         >
-          <MenuOutlined className={classes.trigger} onClick={toggle} />
-          <span className={classes["header-title"]}>
-            {getCurrentPageName()}
-          </span>
-        </Header>
+          <div className={classes.logo} />
+          <Menu mode="inline" defaultSelectedKeys={[location.pathname]}>
+            {menus.map((menu, index) => (
+              <Menu.Item key={menu.path} icon={menu.icon}>
+                <Link id={`link-${index}`} to={menu.path}>
+                  {menu.name}
+                </Link>
+              </Menu.Item>
+            ))}
+          </Menu>
+        </Sider>
+      )}
+      <Layout className={classes["site-layout"]}>
+        {!isAuthPage() && (
+          <Header
+            className="content-blue"
+            style={{ padding: 0 }}
+          >
+            <MenuOutlined className={classes.trigger} onClick={toggle} />
+            <span className={classes["header-title"]}>
+              {getCurrentPageName()}
+            </span>
+          </Header>
+        )}
         <Content
           className={classes["site-layout-background"]}
           style={{
