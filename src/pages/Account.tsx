@@ -1,7 +1,7 @@
 import React from 'react'
-import { Tabs } from 'antd';
-import { Row, Col, Card, Button, Form, Input, Space } from "antd"
+import { Row, Col, Card, Button, Form, Input, Space, Tabs } from "antd"
 import { EyeInvisibleOutlined, EyeTwoTone,  MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+
 
 const { TabPane } = Tabs;
 
@@ -152,12 +152,14 @@ const Account: React.FC = () => {
                       iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                     />
                   </Form.Item>
-
+                  
                   <Form.Item
-                    label="Email"
-                    style={{ margin: 0, width: "100%", marginBottom: 30 }}
+                    label="Confirm Password"
+                    style={{ marginBottom: 15 }}
                   >
-                    <Input type="email" />
+                    <Input.Password
+                      iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                    />
                   </Form.Item>
 
                   <Row justify="end">
