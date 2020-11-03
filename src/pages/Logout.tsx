@@ -1,0 +1,18 @@
+import React, { FC, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+
+const Logout: FC = () => {
+  const history = useHistory()
+
+  useEffect(() => {
+    setTimeout(() => history.push('/login'), 1000)
+  }, [])
+
+  return (
+    <div className="container-center">
+      <p>Logging out...</p>
+    </div>
+  )
+}
+
+export default Logout

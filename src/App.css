@@ -1,7 +1,11 @@
 @import '~antd/dist/antd.css';
 
 .ant-table {
-  box-shadow: 0 4px 16px #e6e6e6;
+  box-shadow: var(--card-shadow);
+}
+
+.ant-card-body {
+  box-shadow: var(--card-shadow);
 }
 
 :root {
@@ -9,6 +13,15 @@
   --lightblue: #e6f7ff;
   --green: #52c41a;
   --green2: #73d13d;  
+  --card-shadow: 0 4px 16px #e6e6e6;
+}
+
+.container-center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .app-section {
@@ -27,6 +40,10 @@
 
 .typo-center {
   text-align: center;
+}
+
+.typo-right {
+  text-align: right;
 }
 
 .margin-auto {
