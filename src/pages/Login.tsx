@@ -1,9 +1,15 @@
-import React from 'react';
-import { Row, Col, Card, Button, Form, Input } from 'antd';
-import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import React from 'react'
+import { useHistory, Link } from 'react-router-dom'
+import { Row, Col, Card, Button, Form, Input } from 'antd'
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons'
 
 const Login: React.FC = () => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
+  const history = useHistory()
+
+  const handleSignin = (): void => {
+    history.push('/')
+  }
 
   return (
     <section className="app-section">
@@ -12,7 +18,7 @@ const Login: React.FC = () => {
           <h2>DeliverIT</h2>
         </Col>
 
-        <Col xl={5} lg={10} md={10} xs={10}>
+        <Col xl={6} lg={8} md={10} sm={12} xs={24}>
           <Card>
             <Form form={form} layout="vertical" size="large">
               <Form.Item label="Email" style={{ marginBottom: 15 }}>
@@ -34,16 +40,13 @@ const Login: React.FC = () => {
                 />
               </Form.Item>
 
-              <Row justify="center">
-                <Col style={{ marginTop: 10 }}>
-                  <p>
-                    {' '}
-                    <a href="#"> Forgot password ? </a>{' '}
-                  </p>
+              <Row gutter={[8, 8]} justify="space-between" align="middle">
+                <Col xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <a href="#">Forgot password?</a>
                 </Col>
-                <Col xl={14} lg={14} md={12} sm={10} xs={24} style={{ textAlign: 'right' }}>
-                  <Button type="primary" typeof="submit">
-                    Sign In
+                <Col xl={12} lg={12} md={12} sm={12} xs={12} className="typo-right">
+                  <Button onClick={handleSignin} type="primary" typeof="submit">
+                    Sign in
                   </Button>
                 </Col>
               </Row>
@@ -52,15 +55,12 @@ const Login: React.FC = () => {
         </Col>
 
         <Col span={24} className="typo-grey typo-center" style={{ marginTop: 30 }}>
-          <span>Don't have account yet?</span>
-          <p>
-            {' '}
-            <a href="#"> Sign up here </a>{' '}
-          </p>
+          <p>Don't have account yet?</p>
+          <Link to="/register">Sign up here</Link>
         </Col>
       </Row>
     </section>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

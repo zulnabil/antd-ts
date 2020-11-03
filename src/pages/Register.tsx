@@ -1,9 +1,15 @@
-import React from 'react';
-import { Row, Col, Card, Button, Form, Input } from 'antd';
-import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import React from 'react'
+import { useHistory, Link } from 'react-router-dom'
+import { Row, Col, Card, Button, Form, Input } from 'antd'
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons'
 
 const Register: React.FC = () => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
+  const history = useHistory()
+
+  const handleSignup = (): void => {
+    history.push('/login')
+  }
 
   return (
     <section className="app-section">
@@ -12,7 +18,7 @@ const Register: React.FC = () => {
           <h2>DeliverIT</h2>
         </Col>
 
-        <Col xl={5} lg={10} md={10} xs={10}>
+        <Col xl={6} lg={8} md={10} sm={12} xs={24}>
           <Card>
             <Form form={form} layout="vertical" size="large">
               <Form.Item label="Email" style={{ marginBottom: 15 }}>
@@ -36,7 +42,7 @@ const Register: React.FC = () => {
 
               <Row justify="center">
                 <Col>
-                  <Button type="primary" typeof="submit">
+                  <Button onClick={handleSignup} type="primary" typeof="submit">
                     Register
                   </Button>
                 </Col>
@@ -46,15 +52,12 @@ const Register: React.FC = () => {
         </Col>
 
         <Col span={24} className="typo-grey typo-center" style={{ marginTop: 30 }}>
-          <span>Already have account ?</span>
-          <p>
-            {' '}
-            <a href="#"> Login here </a>{' '}
-          </p>
+          <p>Already have account ?</p>
+          <Link to="/login">Login here</Link>
         </Col>
       </Row>
     </section>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register
