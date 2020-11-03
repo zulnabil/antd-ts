@@ -9,7 +9,6 @@ const Account: React.FC = () => {
   
   const [form] = Form.useForm()
 
-
   return (
     <Tabs defaultActiveKey="1" centered>
       
@@ -137,7 +136,6 @@ const Account: React.FC = () => {
                         style={{ margin: 0, width: "100%" }}
                       >
                         <Input.Password
-                          
                           iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         />
                       </Form.Item>

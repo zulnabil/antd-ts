@@ -7,6 +7,8 @@ const Shipments = lazy(() => import("pages/Shipments"))
 const Topup = lazy(() => import("pages/Topup"))
 const Transactions = lazy(() => import("pages/Transactions"))
 const Account = lazy(() => import("pages/Account"))
+const Login = lazy(() => import("pages/Login"))
+const Register = lazy(() => import("pages/Register"))
 
 export const router = [
   {
@@ -44,5 +46,15 @@ export const router = [
     path: "/account",
     name: "Account",
     component: <Account />,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: <Login />,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: <Register />,
   },
 ]
