@@ -1,42 +1,37 @@
-import React from 'react'
-import { Tag } from "antd"
-import {
-  CheckCircleOutlined,
-  SyncOutlined,
-  CloseCircleOutlined,
-  ClockCircleOutlined,
-} from "@ant-design/icons"
+import React from 'react';
+import { Tag } from 'antd';
+import { CheckCircleOutlined, SyncOutlined, CloseCircleOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
 const icon = {
-  lalamove: "/img/lalamove_logo.svg",
-  gogovan: "/img/gogovan_logo.svg",
-  grab: "/img/grab_logo.svg",
-}
+  lalamove: '/img/lalamove_logo.svg',
+  gogovan: '/img/gogovan_logo.svg',
+  grab: '/img/grab_logo.svg',
+};
 
 interface NameAddress {
-  name: string
-  address: string
+  name: string;
+  address: string;
 }
 
-declare type AlignType = 'left' | 'center' | 'right'
+declare type AlignType = 'left' | 'center' | 'right';
 
 export const columns = [
   {
-    title: "Courier",
-    dataIndex: "courier",
-    key: "courier",
-    align: "center" as AlignType,
+    title: 'Courier',
+    dataIndex: 'courier',
+    key: 'courier',
+    align: 'center' as AlignType,
     render: (courier: string): JSX.Element => <img src={courier} alt={courier} />,
   },
   {
-    title: "Description",
-    dataIndex: "description",
-    key: "description",
+    title: 'Description',
+    dataIndex: 'description',
+    key: 'description',
   },
   {
-    title: "From",
-    dataIndex: "from",
-    key: "from",
+    title: 'From',
+    dataIndex: 'from',
+    key: 'from',
     render: (from: NameAddress): JSX.Element => (
       <span>
         {from.name}
@@ -46,9 +41,9 @@ export const columns = [
     ),
   },
   {
-    title: "To",
-    dataIndex: "to",
-    key: "to",
+    title: 'To',
+    dataIndex: 'to',
+    key: 'to',
     render: (to: NameAddress): JSX.Element => (
       <span>
         {to.name}
@@ -58,20 +53,20 @@ export const columns = [
     ),
   },
   {
-    title: "Status",
-    key: "status",
-    dataIndex: "status",
+    title: 'Status',
+    key: 'status',
+    dataIndex: 'status',
     render: (status: string): JSX.Element => (
       <>
-        {status === "Delivered" ? (
+        {status === 'Delivered' ? (
           <Tag icon={<CheckCircleOutlined />} color="success">
             {status}
           </Tag>
-        ) : status === "On the way" ? (
+        ) : status === 'On the way' ? (
           <Tag icon={<SyncOutlined spin />} color="processing">
             {status}
           </Tag>
-        ) : status === "Pending pickup" ? (
+        ) : status === 'Pending pickup' ? (
           <Tag icon={<ClockCircleOutlined />} color="warning">
             {status}
           </Tag>
@@ -83,163 +78,163 @@ export const columns = [
       </>
     ),
   },
-]
+];
 
 export const data = [
   {
     courier: icon.lalamove,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Wuhan Yan",
-      address: "514 Chai Chee Lane",
+      name: 'Wuhan Yan',
+      address: '514 Chai Chee Lane',
     },
     to: {
-      name: "Jian Tao",
-      address: "150 Neil Road",
+      name: 'Jian Tao',
+      address: '150 Neil Road',
     },
-    status: "Pending pickup",
+    status: 'Pending pickup',
   },
   {
     courier: icon.gogovan,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Joseph",
-      address: "100 Bukit Timah Road 01-23...",
+      name: 'Joseph',
+      address: '100 Bukit Timah Road 01-23...',
     },
     to: {
-      name: "Kam",
-      address: "1 Fullerton Rd #02-02...",
+      name: 'Kam',
+      address: '1 Fullerton Rd #02-02...',
     },
-    status: "On the way",
+    status: 'On the way',
   },
   {
     courier: icon.grab,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Wuhan Yan",
-      address: "514 Chai Chee Lane",
+      name: 'Wuhan Yan',
+      address: '514 Chai Chee Lane',
     },
     to: {
-      name: "Jian Tao",
-      address: "150 Neil Road",
+      name: 'Jian Tao',
+      address: '150 Neil Road',
     },
-    status: "Rejected",
+    status: 'Rejected',
   },
   {
     courier: icon.gogovan,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Joseph",
-      address: "100 Bukit Timah Road 01-23...",
+      name: 'Joseph',
+      address: '100 Bukit Timah Road 01-23...',
     },
     to: {
-      name: "Kam",
-      address: "1 Fullerton Rd #02-02...",
+      name: 'Kam',
+      address: '1 Fullerton Rd #02-02...',
     },
-    status: "Delivered",
+    status: 'Delivered',
   },
   {
     courier: icon.lalamove,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Wuhan Yan",
-      address: "514 Chai Chee Lane",
+      name: 'Wuhan Yan',
+      address: '514 Chai Chee Lane',
     },
     to: {
-      name: "Jian Tao",
-      address: "150 Neil Road",
+      name: 'Jian Tao',
+      address: '150 Neil Road',
     },
-    status: "Pending pickup",
+    status: 'Pending pickup',
   },
   {
     courier: icon.grab,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Joseph",
-      address: "100 Bukit Timah Road 01-23...",
+      name: 'Joseph',
+      address: '100 Bukit Timah Road 01-23...',
     },
     to: {
-      name: "Kam",
-      address: "1 Fullerton Rd #02-02...",
+      name: 'Kam',
+      address: '1 Fullerton Rd #02-02...',
     },
-    status: "On the way",
+    status: 'On the way',
   },
   {
     courier: icon.lalamove,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Wuhan Yan",
-      address: "514 Chai Chee Lane",
+      name: 'Wuhan Yan',
+      address: '514 Chai Chee Lane',
     },
     to: {
-      name: "Jian Tao",
-      address: "150 Neil Road",
+      name: 'Jian Tao',
+      address: '150 Neil Road',
     },
-    status: "Rejected",
+    status: 'Rejected',
   },
   {
     courier: icon.gogovan,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Joseph",
-      address: "100 Bukit Timah Road 01-23...",
+      name: 'Joseph',
+      address: '100 Bukit Timah Road 01-23...',
     },
     to: {
-      name: "Kam",
-      address: "1 Fullerton Rd #02-02...",
+      name: 'Kam',
+      address: '1 Fullerton Rd #02-02...',
     },
-    status: "Delivered",
+    status: 'Delivered',
   },
   {
     courier: icon.grab,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Wuhan Yan",
-      address: "514 Chai Chee Lane",
+      name: 'Wuhan Yan',
+      address: '514 Chai Chee Lane',
     },
     to: {
-      name: "Jian Tao",
-      address: "150 Neil Road",
+      name: 'Jian Tao',
+      address: '150 Neil Road',
     },
-    status: "Pending pickup",
+    status: 'Pending pickup',
   },
   {
     courier: icon.gogovan,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Joseph",
-      address: "100 Bukit Timah Road 01-23...",
+      name: 'Joseph',
+      address: '100 Bukit Timah Road 01-23...',
     },
     to: {
-      name: "Kam",
-      address: "1 Fullerton Rd #02-02...",
+      name: 'Kam',
+      address: '1 Fullerton Rd #02-02...',
     },
-    status: "On the way",
+    status: 'On the way',
   },
   {
     courier: icon.lalamove,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Wuhan Yan",
-      address: "514 Chai Chee Lane",
+      name: 'Wuhan Yan',
+      address: '514 Chai Chee Lane',
     },
     to: {
-      name: "Jian Tao",
-      address: "150 Neil Road",
+      name: 'Jian Tao',
+      address: '150 Neil Road',
     },
-    status: "Rejected",
+    status: 'Rejected',
   },
   {
     courier: icon.grab,
-    description: "Same day delivery",
+    description: 'Same day delivery',
     from: {
-      name: "Joseph",
-      address: "100 Bukit Timah Road 01-23...",
+      name: 'Joseph',
+      address: '100 Bukit Timah Road 01-23...',
     },
     to: {
-      name: "Kam",
-      address: "1 Fullerton Rd #02-02...",
+      name: 'Kam',
+      address: '1 Fullerton Rd #02-02...',
     },
-    status: "Delivered",
+    status: 'Delivered',
   },
-]
+];
