@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { FC, Suspense, useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
@@ -7,18 +6,10 @@ import PrivateRoute from 'PrivateRoute'
 import { router } from 'constants/router.root'
 import { AuthContext } from 'context/auth'
 import { getToken, setToken, removeToken } from 'services/caches'
-=======
-import React, { FC, Suspense } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import './App.css'
-
-import { router } from 'constants/router.root'
->>>>>>> e1c6f20097641c7c3c1bdc0a54c7cb0bef4f5667
 
 import AppLayout from 'components/layout/AppLayout'
 import CircleFullscreen from 'components/loader/CircleFullscreen'
 
-<<<<<<< HEAD
 const App: FC = () => {
   const existingToken = getToken()
   const [authToken, setAuthToken] = useState(existingToken)
@@ -62,22 +53,4 @@ const App: FC = () => {
   )
 }
 
-=======
-const App: FC = () => (
-  <Router>
-    <Switch>
-      <AppLayout>
-        <Suspense fallback={<CircleFullscreen />}>
-          {router.map((route) => (
-            <Route key={route.path} exact={route.exact || false} path={route.path}>
-              {route.component}
-            </Route>
-          ))}
-        </Suspense>
-      </AppLayout>
-    </Switch>
-  </Router>
-)
-
->>>>>>> e1c6f20097641c7c3c1bdc0a54c7cb0bef4f5667
 export default App
