@@ -43,13 +43,13 @@ export const data = [
     channel: 'Woo Commerce',
     key: '1234-fjdkl-9876-cvkjd',
     status: 'active',
-    action: <Button> Active </Button>,
+    action: <Button type="primary"> Active </Button>,
   },
   {
     courier: icon.shopify,
     channel: 'Shoopify',
     key: '-',
     status: 'Not Active',
-    action: <Button> View </Button>,
+    action: <Button danger> View </Button>,
   },
 ]
