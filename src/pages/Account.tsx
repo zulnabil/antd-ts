@@ -1,15 +1,15 @@
-import React from 'react';
-import { Row, Col, Card, Button, Form, Input, Space, Tabs } from 'antd';
-import { EyeInvisibleOutlined, EyeTwoTone, MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import React from 'react'
+import { Row, Col, Card, Button, Form, Input, Space, Tabs } from 'antd'
+import { EyeInvisibleOutlined, EyeTwoTone, MinusCircleOutlined, PlusOutlined } from '@ant-design/icons'
 
-const { TabPane } = Tabs;
+const { TabPane } = Tabs
 
 const Account: React.FC = () => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
 
   return (
     <Tabs defaultActiveKey="1" centered>
-      <TabPane tab="Profile" key="1">
+      <TabPane tab="PROFILE" key="1">
         <section className="app-section">
           <Row justify="center">
             <Col xl={6} lg={12} md={12} xs={12}>
@@ -93,7 +93,7 @@ const Account: React.FC = () => {
         </section>
       </TabPane>
 
-      <TabPane tab="Change Password" key="2">
+      <TabPane tab="CHANGE PASSWORD" key="2">
         <section className="app-section">
           <Row justify="center">
             <Col xl={6} lg={12} md={12} xs={12}>
@@ -129,7 +129,7 @@ const Account: React.FC = () => {
         </section>
       </TabPane>
     </Tabs>
-  );
-};
+  )
+}
 
-export default Account;
+export default Account

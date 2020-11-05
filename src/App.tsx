@@ -1,11 +1,11 @@
-import React, { FC, Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import './App.css';
+import React, { FC, Suspense } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import './App.css'
 
-import { router } from "constants/router.root"
+import { router } from 'constants/router.root'
 
-import AppLayout from "components/layout/AppLayout"
-import CircleFullscreen from "components/loader/CircleFullscreen"
+import AppLayout from 'components/layout/AppLayout'
+import CircleFullscreen from 'components/loader/CircleFullscreen'
 
 const App: FC = () => (
   <Router>
@@ -13,11 +13,7 @@ const App: FC = () => (
       <AppLayout>
         <Suspense fallback={<CircleFullscreen />}>
           {router.map((route) => (
-            <Route
-              key={route.path}
-              exact={route.exact || false}
-              path={route.path}
-            >
+            <Route key={route.path} exact={route.exact || false} path={route.path}>
               {route.component}
             </Route>
           ))}
@@ -27,5 +23,4 @@ const App: FC = () => (
   </Router>
 )
 
-
-export default App;
+export default App

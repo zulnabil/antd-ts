@@ -7,49 +7,55 @@ import {
   ProfileOutlined,
   DollarOutlined,
   InteractionOutlined,
+  ShrinkOutlined,
   UserOutlined,
   ImportOutlined,
-} from "@ant-design/icons"
+} from '@ant-design/icons'
 
 export const menus = [
   {
-    name: "Dashboard",
-    path: "/",
+    name: 'Dashboard',
+    path: '/',
     icon: <AppstoreOutlined />,
   },
   {
-    name: "Create shipment",
-    path: "/create-shipment",
+    name: 'Create shipment',
+    path: '/create-shipment',
     icon: <PlusCircleOutlined />,
   },
   {
-    name: "Pending checkout",
-    path: "/pending-checkout",
+    name: 'Pending checkout',
+    path: '/pending-checkout',
     icon: <ClockCircleOutlined />,
   },
   {
-    name: "Shipments",
-    path: "/shipments",
+    name: 'Shipments',
+    path: '/shipments',
     icon: <ProfileOutlined />,
   },
   {
-    name: "Top-up",
-    path: "/topup",
+    name: 'Top-up',
+    path: '/topup',
     icon: <DollarOutlined />,
   },
   {
-    name: "Transactions",
-    path: "/transactions",
+    name: 'Transactions',
+    path: '/transactions',
     icon: <InteractionOutlined />,
   },
   {
-    name: "Account",
-    path: "/account",
-    icon: <UserOutlined />
+    name: 'Integrations',
+    path: '/integrations',
+    icon: <ShrinkOutlined />,
   },
   {
-    name: "Logout",
-    path: "/logout",
-    icon: <ImportOutlined />
-  }
+    name: 'Account',
+    path: '/account',
+    icon: <UserOutlined />,
+  },
+  {
+    name: 'Logout',
+    path: '/logout',
+    icon: <ImportOutlined />,
+  },
 ]

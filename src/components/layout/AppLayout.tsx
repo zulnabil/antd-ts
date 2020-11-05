@@ -1,10 +1,10 @@
-import React, { FC, ReactNode, useState } from "react"
-import { Link, useLocation } from "react-router-dom"
-import { Layout, Menu } from "antd"
-import { MenuOutlined } from "@ant-design/icons"
+import React, { FC, ReactNode, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { Layout, Menu } from 'antd'
+import { MenuOutlined } from '@ant-design/icons'
 
-import classes from "./AppLayout.module.css"
-import { menus } from "constants/sider"
+import classes from './AppLayout.module.css'
+import { menus } from 'constants/sider'
 
 const { Header, Sider, Content } = Layout
 
@@ -32,13 +32,7 @@ const AppLayout: FC<Props> = ({ children }) => {
   return (
     <Layout>
       {!isAuthPage() && (
-        <Sider
-          className={classes.sider}
-          theme="light"
-          trigger={null}
-          collapsible
-          collapsed={collapsed}
-        >
+        <Sider className={classes.sider} theme="light" trigger={null} collapsible collapsed={collapsed}>
           <div className={classes.logo} />
           <Menu mode="inline" defaultSelectedKeys={[location.pathname]}>
             {menus.map((menu, index) => (
@@ -51,24 +45,19 @@ const AppLayout: FC<Props> = ({ children }) => {
           </Menu>
         </Sider>
       )}
-      <Layout className={classes["site-layout"]}>
+      <Layout className={classes['site-layout']}>
         {!isAuthPage() && (
-          <Header
-            className="content-blue"
-            style={{ padding: 0 }}
-          >
+          <Header className="content-blue" style={{ padding: 0 }}>
             <MenuOutlined className={classes.trigger} onClick={toggle} />
-            <span className={classes["header-title"]}>
-              {getCurrentPageName()}
-            </span>
+            <span className={classes['header-title']}>{getCurrentPageName()}</span>
           </Header>
         )}
         <Content
-          className={classes["site-layout-background"]}
+          className={classes['site-layout-background']}
           style={{
-            margin: "24px 16px",
+            margin: '24px 16px',
             padding: 24,
-            minHeight: "100vh",
+            minHeight: '100vh',
           }}
         >
           {children}
