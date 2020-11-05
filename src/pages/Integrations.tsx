@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
-import { Table, Row, Col } from 'antd';
+import React, { FC } from 'react'
+import { Table, Row, Col } from 'antd'
 
-import { columns, data } from 'constants/table.shipments';
+import { columns, data } from 'constants/table.integrations'
 
-const Shipments: FC = () => {
+const Integrations: FC = () => {
   return (
     <>
       <Row justify="center">
@@ -12,7 +12,7 @@ const Shipments: FC = () => {
         </Col>
       </Row>
     </>
-  );
-};
+  )
+}
 
-export default Shipments;
+export default Integrations

@@ -1,15 +1,16 @@
-import React, { lazy } from 'react';
+import React, { lazy } from 'react'
 
-const Dashboard = lazy(() => import('pages/dashboard/Dashboard'));
-const CreateShipment = lazy(() => import('pages/CreateShipment'));
-const PendingCheckout = lazy(() => import('pages/PendingCheckout'));
-const Shipments = lazy(() => import('pages/Shipments'));
-const Topup = lazy(() => import('pages/Topup'));
-const Transactions = lazy(() => import('pages/Transactions'));
-const Account = lazy(() => import('pages/Account'));
-const Login = lazy(() => import('pages/Login'));
-const Register = lazy(() => import('pages/Register'));
-const Logout = lazy(() => import('pages/Logout'));
+const Dashboard = lazy(() => import('pages/dashboard/Dashboard'))
+const CreateShipment = lazy(() => import('pages/CreateShipment'))
+const PendingCheckout = lazy(() => import('pages/PendingCheckout'))
+const Shipments = lazy(() => import('pages/Shipments'))
+const Topup = lazy(() => import('pages/Topup'))
+const Transactions = lazy(() => import('pages/Transactions'))
+const Integrations = lazy(() => import('pages/Integrations'))
+const Account = lazy(() => import('pages/Account'))
+const Login = lazy(() => import('pages/Login'))
+const Register = lazy(() => import('pages/Register'))
+const Logout = lazy(() => import('pages/Logout'))
 
 export const router = [
   {
@@ -44,6 +45,11 @@ export const router = [
     component: <Transactions />,
   },
   {
+    path: '/integrations',
+    name: 'Integrations',
+    component: <Integrations />,
+  },
+  {
     path: '/account',
     name: 'Account',
     component: <Account />,
@@ -63,4 +69,4 @@ export const router = [
     name: 'Logout',
     component: <Logout />,
   },
-];
+]
