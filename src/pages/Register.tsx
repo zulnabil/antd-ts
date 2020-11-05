@@ -21,19 +21,21 @@ const Register: React.FC = () => {
         <Col xl={6} lg={8} md={10} sm={12} xs={24}>
           <Card>
             <Form form={form} layout="vertical" size="large">
-              <Form.Item label="Email" style={{ marginBottom: 15 }}>
-                <Input.Group compact>
-                  <Form.Item
-                    name="email"
-                    rules={[{ required: true, message: 'Email is required' }]}
-                    style={{ margin: 0, width: '100%' }}
-                  >
-                    <Input name="email" type="email" />
-                  </Form.Item>
-                </Input.Group>
+              <Form.Item
+                label="Email"
+                name="email"
+                rules={[{ required: true, message: 'Email is required' }]}
+                style={{ marginBottom: 15 }}
+              >
+                <Input name="email" type="email" />
               </Form.Item>
 
-              <Form.Item label="Password" style={{ marginBottom: 30 }}>
+              <Form.Item
+                label="Password"
+                name="password"
+                rules={[{ required: true, message: 'Password is required' }]}
+                style={{ marginBottom: 30 }}
+              >
                 <Input.Password
                   name="password"
                   iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
@@ -52,7 +54,7 @@ const Register: React.FC = () => {
         </Col>
 
         <Col span={24} className="typo-grey typo-center" style={{ marginTop: 30 }}>
-          <p>Already have account ?</p>
+          <p>Already have account?</p>
           <Link to="/login">Login here</Link>
         </Col>
       </Row>
