@@ -9,10 +9,10 @@ const Account: React.FC = () => {
 
   return (
     <Tabs defaultActiveKey="1" centered>
-      <TabPane tab="PROFILE" key="1">
+      <TabPane tab="Profile" key="1">
         <section className="app-section">
           <Row justify="center">
-            <Col xl={6} lg={12} md={12} xs={12}>
+            <Col xl={8} lg={10} md={14} sm={18} xs={24}>
               <Card>
                 <Form form={form} layout="vertical" size="large">
                   <Form.Item label="Name" style={{ marginBottom: 15 }}>
@@ -93,10 +93,10 @@ const Account: React.FC = () => {
         </section>
       </TabPane>
 
-      <TabPane tab="CHANGE PASSWORD" key="2">
+      <TabPane tab="Change Password" key="2">
         <section className="app-section">
           <Row justify="center">
-            <Col xl={6} lg={12} md={12} xs={12}>
+            <Col xl={8} lg={10} md={14} sm={18} xs={24}>
               <Card>
                 <Form form={form} layout="vertical" size="large">
                   <Form.Item label="Current Password" style={{ marginBottom: 15 }}>

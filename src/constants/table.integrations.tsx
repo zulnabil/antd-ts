@@ -1,17 +1,9 @@
 import React from 'react'
-import { Tag, Button } from 'antd'
-import { CheckCircleOutlined, SyncOutlined, CloseCircleOutlined, ClockCircleOutlined } from '@ant-design/icons'
-import { ButtonHTMLType } from 'antd/lib/button/button'
+import { Button } from 'antd'
 
 const icon = {
-  lalamove: '/img/lalamove_logo.svg',
-  gogovan: '/img/gogovan_logo.svg',
-  grab: '/img/grab_logo.svg',
-}
-
-interface NameAddress {
-  name: string
-  address: string
+  wooCommerce: '/img/wooCommerce_logo.svg',
+  shopify: '/img/shopify_logo.svg',
 }
 
 declare type AlignType = 'left' | 'center' | 'right'
@@ -41,24 +33,23 @@ export const columns = [
   },
   {
     title: 'Action',
-    key: 'action',
     dataIndex: 'action',
   },
 ]
 
 export const data = [
   {
-    courier: icon.lalamove,
+    courier: icon.wooCommerce,
     channel: 'Woo Commerce',
     key: '1234-fjdkl-9876-cvkjd',
     status: 'active',
-    Action: <Button type="primary"> Active </Button>,
+    action: <Button> Active </Button>,
   },
   {
-    courier: icon.gogovan,
-    channel: 'Woo Commerce',
-    key: '1234-fjdkl-9876-cvkjd',
+    courier: icon.shopify,
+    channel: 'Shoopify',
+    key: '-',
     status: 'Not Active',
-    Action: <Button type="primary"> Active </Button>,
+    action: <Button> View </Button>,
   },
 ]
