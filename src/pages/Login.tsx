@@ -1,14 +1,40 @@
-import React from 'react'
-import { useHistory, Link } from 'react-router-dom'
-import { Row, Col, Card, Button, Form, Input } from 'antd'
+import React, { FC, useState } from 'react'
+import { Link, Redirect } from 'react-router-dom'
+import { Row, Col, Card, Button, Form, Input, Alert } from 'antd'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons'
 
-const Login: React.FC = () => {
-  const [form] = Form.useForm()
-  const history = useHistory()
+import { useFetchPost } from 'services/useFetch'
+import { useAuth } from 'context/auth'
 
-  const handleSignin = (): void => {
-    history.push('/')
+const Login: FC = () => {
+  const [form] = Form.useForm()
+  const { setAuthToken } = useAuth()
+  const [values, setValues] = useState<Record<string, unknown>>({})
+  const [isLoggedIn, setLoggedIn] = useState(false)
+  const [isInvalidCredential, setInvalidCredential] = useState(false)
+
+  const handleChange = (name) => (event) => {
+    setValues({ ...values, [name]: event.target.value })
+    setInvalidCredential(false)
+  }
+
+  const handleSignin = async () => {
+    try {
+      const res = await useFetchPost(`${process.env.REACT_APP_API_URL}/auth`, 'POST', values)
+      if (res.token) {
+        setAuthToken(res.token)
+        setLoggedIn(true)
+      } else {
+        throw Error('failed')
+      }
+    } catch (error) {
+      console.log(error)
+      setInvalidCredential(true)
+    }
+  }
+
+  if (isLoggedIn) {
+    return <Redirect to="/" />
   }
 
   return (
@@ -27,22 +53,23 @@ const Login: React.FC = () => {
                 rules={[{ required: true, message: 'Email is required' }]}
                 style={{ marginBottom: 15 }}
               >
-                <Input name="email" type="email" />
+                <Input onChange={handleChange('email')} name="email" type="email" />
               </Form.Item>
 
               <Form.Item
                 label="Password"
                 name="password"
                 rules={[{ required: true, message: 'Password is required' }]}
-                style={{ marginBottom: 30 }}
+                style={{ marginBottom: 15 }}
               >
                 <Input.Password
+                  onChange={handleChange('password')}
                   name="password"
                   iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                 />
               </Form.Item>
-
-              <Row gutter={[8, 8]} justify="space-between" align="middle">
+              {isInvalidCredential && <Alert message="Error: Invalid credentials." type="error" showIcon />}
+              <Row gutter={[8, 8]} justify="space-between" align="middle" style={{ marginTop: 15 }}>
                 <Col xl={12} lg={12} md={12} sm={12} xs={12}>
                   <a href="#">Forgot password?</a>
                 </Col>

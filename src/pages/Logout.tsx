@@ -1,11 +1,17 @@
 import React, { FC, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import { useAuth } from 'context/auth'
+
 const Logout: FC = () => {
   const history = useHistory()
+  const { removeAuthToken } = useAuth()
 
   useEffect(() => {
-    setTimeout(() => history.push('/login'), 1000)
+    setTimeout(() => {
+      removeAuthToken()
+      history.push('/login')
+    }, 1000)
   }, [])
 
   return (

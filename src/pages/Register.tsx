@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import { Row, Col, Card, Button, Form, Input } from 'antd'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons'
 
-const Register: React.FC = () => {
+const Register: FC = () => {
   const [form] = Form.useForm()
   const history = useHistory()
 

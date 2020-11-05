@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { getToken } from './caches'
 
 declare type methodType = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
@@ -8,24 +9,22 @@ interface Options {
   body?: string
 }
 
-const useFetch = (
+export const useFetchGet = (
   url: string,
   method: methodType = 'GET',
-  body?: Record<string, unknown>
 ): [boolean, Record<string, unknown>] => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [output, setOutput] = useState<Record<string, unknown>>({})
 
   const headers = new Headers({
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${getToken()}`
   })
 
   const options: Options = {
     method,
     headers,
   }
-
-  if (body) options.body = JSON.stringify(body)
 
   const fetchData = async () => {
     try {
@@ -47,4 +46,30 @@ const useFetch = (
   return [isLoading, output]
 }
 
-export default useFetch
+export const useFetchPost = async (
+  url: string,
+  method: methodType = "POST",
+  body: Record<string, unknown>
+): Promise<Record<string, unknown>> => {
+
+
+  const headers = new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${getToken()}`
+  })
+
+  const options: Options = {
+    method,
+    headers,
+    body: JSON.stringify(body)
+  }
+
+  try {
+    const res = await fetch(url, options)
+    const data = await res.json()
+    return data
+  } catch (err) {
+    return { error: err.message }
+  }
+}
+
